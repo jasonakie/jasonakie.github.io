@@ -1,5 +1,43 @@
 import React from "react"
 import Layout from "../components/layout"
+import {
+  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+} from 'recharts';
+
+const data = [
+  {
+    name: 'Tableau', uv: 3000, level: 'Proficient'
+  },
+  {
+    name: 'SQL', uv: 2000, level: 'Intermediate'
+  },
+  {
+    name: 'Java', uv: 2000, level: 'Intermediate'
+  },
+  {
+    name: 'Python', uv: 1000, level: 'Apprentice'
+  },
+];
+
+const testFunction = ({data}) => {
+  let value = '';
+
+  switch ({data}.uv) {
+    case '3000':
+      value = 'Proficient'
+      break;
+    case '2000':
+      value = 'Intermediate'
+      break;
+    case '1000':
+      value = 'Apprentice'
+      break;
+    default:
+      break;
+  }
+
+  return value;
+}
 
 export default function Home() {
   return (
@@ -17,6 +55,20 @@ export default function Home() {
       <h3>Work Experience</h3>
       <li>Technical Business Analyst - Alex Solutions</li>
       <li>Reporting Analyst - Origin Energy</li>
+      <BarChart
+        width={500}
+        height={300}
+        layout="vertical"
+        data={data}
+        margin={{
+          top: 5, right: 30, left: 20, bottom: 5,
+        }}
+      >
+        <XAxis hide="true" type="number" dataKey="uv"/>
+        <YAxis type="category" dataKey="name"/>
+        <Tooltip />
+        <Bar dataKey="uv" fill="#82ca9d" label="level"/>
+      </BarChart>
       <h3>Skills</h3>
       <li>Tableau - Proficient</li>
       <li>SQL - Intermediate</li>

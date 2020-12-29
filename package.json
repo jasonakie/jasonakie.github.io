@@ -15,9 +15,12 @@
   },
   "dependencies": {
     "gatsby": "^2.26.1",
+    "gatsby-plugin-anchor-links": "^1.2.0",
     "gatsby-plugin-typography": "^2.9.0",
     "react": "^16.12.0",
+    "react-burger-menu": "^3.0.2",
     "react-dom": "^16.12.0",
+    "react-scroll": "^1.8.1",
     "react-typography": "^0.16.19",
     "rechart": "0.0.1",
     "recharts": "^1.8.5",
